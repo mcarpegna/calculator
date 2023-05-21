@@ -19,7 +19,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 4rem;
     background-image: url(../images/background.webp);
     background-size: cover;
@@ -27,11 +27,22 @@ body {
     background-position: center center;
 }
 
+input {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+input[readonly]:focus {
+    outline: none;
+}
+
 footer {
     font-size: 1.6rem;
     text-align: justify;
-    color: black;
-    background-color: blanchedalmond;
+    color: whitesmoke;
+    background-color: rgba(255,139,83, 60%);
     border-radius: .5rem;
     margin: .5rem;
     padding: .2rem .4rem;
@@ -41,7 +52,7 @@ footer {
 .container {
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: rgba(224,37,11, 65%);     
     height: 60rem;
     width: 40rem;
     border-radius: 1rem;
@@ -51,7 +62,6 @@ footer {
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: white;
     border-radius: 1rem;
     margin: .5rem;
 }
@@ -59,46 +69,59 @@ footer {
 .mini-display {
     display: flex;
     justify-content: right;
-    font-size: 2.4rem;
-    height: 25%;
-    background-color: white;
-    padding: .5rem;
+    font-size: 2rem;
+    height: 30%;
+    background-color: rgba(0,225,131, 40%);         
+    padding: .7rem .5rem 0;
     border: none;
     border-radius: 1rem 1rem 0 0;
+    color: whitesmoke;
 }
 
 .display {
     display: flex;
+    background-color: rgba(0,225,131, 40%);
+    color: whitesmoke;
     text-align: right;
     padding: .5rem;
     font-size: 5rem;
-    height: 75%;
+    height: 70%;
     border: none;
     border-radius: 0 0 1rem 1rem;
 }
 
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
+
 .keys {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items:center;
     flex: 4;
-    padding: .5rem;
-    background-color: blanchedalmond;
-    margin: 0 .5rem .5rem;
+    padding: .3rem;
+    background-color: rgba(255,139,83, 60%);
+    margin: 0 .3rem .3rem;
     border-radius: 1rem;
-
 }
 
 .key {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 8rem;
-    height: 8rem;
-    border: .1rem solid black;
+    font-size: 3.6rem;
+    width: 8.5rem;
+    height: 8.5rem;
+    padding: 0;
+    border: none;
     border-radius: 1rem;
-    background-color: azure;
+    background-color: rgba(0,125,196, 60%);
+    color: whitesmoke;
 }
 
 .key:active {
@@ -106,5 +129,9 @@ footer {
 }
 
 .biggerKey {
-    width: 16rem;
+    width: 18.3rem;
+}
+
+.clear, .delete {
+    font-size: 2.8rem;
 }

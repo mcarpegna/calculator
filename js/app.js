@@ -63,8 +63,6 @@ keys.forEach(key => {
         if (key.classList.contains('equal')) {
             if (firstNum !== '' && secondNum !== '' && operator !== '') {
                 let result = operate(firstNum, secondNum, operator);
-                result = Math.round(result * 100000000) / 100000000;
-                result = result.toString();
                 display.value = result;
                 miniDisplay.textContent = firstNum + operator + secondNum;
                 selectedNum = '';
@@ -84,8 +82,8 @@ keys.forEach(key => {
             secondNum = '';
             operator = '';
             isOperatorSelected = false;
-            display.value = '';
             isResultObtained = true;
+            display.value = '';
             miniDisplay.textContent = '';
         }
     });

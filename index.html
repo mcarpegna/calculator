@@ -9,7 +9,7 @@
     <meta name="description" content="The Odin Project Calculator Project for academic purposes">
     <link rel="stylesheet" href="css/style.css" media="screen">
     <link rel="stylesheet" href="css/normalize.css" media="screen">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <script src="js/app.js" defer></script>
 </head>
 
@@ -17,7 +17,8 @@
     <main class="container">
         <div class="displays">
             <div class="mini-display"></div>
-            <input type="text" class="display" name="display" readonly>    
+            <label for="display" class="visually-hidden">Calculator Results</label>
+            <input type="text" class="display" name="display" id="display" readonly>    
         </div>
         <div class="keys">
             <button type="submit" class="key clear" data-value="ac">AC</button>
@@ -27,7 +28,7 @@
             <button type="submit" class="key number" data-value="1">1</button>
             <button type="submit" class="key number" data-value="2">2</button>
             <button type="submit" class="key number" data-value="3">3</button>
-            <button type="submit" class="key operator" data-value="x">x</button>
+            <button type="submit" class="key operator" data-value="x">*</button>
             <button type="submit" class="key number" data-value="4">4</button>
             <button type="submit" class="key number" data-value="5">5</button>
             <button type="submit" class="key number" data-value="6">6</button>
@@ -41,8 +42,7 @@
             <button type="submit" class="key equal biggerKey" data-value="=">=</button>
         </div>
     </main>
-
-    <footer>Designed and developed by Mario A. Carpegna</footer>
+    <footer>© Designed and developed by Mario A. Carpegna</footer>
 </body>
 
-</html>
+</html>     
