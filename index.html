@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png">
+    <title>Calculator</title>
+    <meta name="description" content="The Odin Project Calculator Project for academic purposes">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/normalize.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <div class="displays">
+            <div class="mini-display"></div>
+            <input type="text" class="display" name="display" readonly>    
+        </div>
+        <div class="keys">
+            <button type="submit" class="key clear" data-value="ac">AC</button>
+            <button type="submit" class="key delete" data-value="del">DEL</button>
+            <button type="submit" class="key operator" data-value="^">x&#x02B8</button>
+            <button type="submit" class="key operator" data-value="÷">&divide</button>
+            <button type="submit" class="key number" data-value="1">1</button>
+            <button type="submit" class="key number" data-value="2">2</button>
+            <button type="submit" class="key number" data-value="3">3</button>
+            <button type="submit" class="key operator" data-value="x">x</button>
+            <button type="submit" class="key number" data-value="4">4</button>
+            <button type="submit" class="key number" data-value="5">5</button>
+            <button type="submit" class="key number" data-value="6">6</button>
+            <button type="submit" class="key operator" data-value="-">-</button>
+            <button type="submit" class="key number" data-value="7">7</button>
+            <button type="submit" class="key number" data-value="8">8</button>
+            <button type="submit" class="key number" data-value="9">9</button>
+            <button type="submit" class="key operator" data-value="+">+</button>
+            <button type="submit" class="key number" data-value="0">0</button>
+            <button type="submit" class="key number dot" data-value=".">.</button>
+            <button type="submit" class="key equal biggerKey" data-value="=">=</button>
+        </div>
+    </main>
+
+    <footer>Designed and developed by Mario A. Carpegna</footer>
+</body>
+
+</html>
