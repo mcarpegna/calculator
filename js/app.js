@@ -1,5 +1,5 @@
 let finalNum = '';
-let firstNum = '';
+let firstNum = '0';
 let secondNum = '';
 let operator = '';
 let isOperatorSelected = false;
@@ -13,6 +13,8 @@ const miniDisplay = document.querySelector('.mini-display');
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => {
     key.addEventListener('click', () => {
+
+        key.classList.add('key-animation');
 
         if (key.classList.contains('number')) {
             const selectedNum = key.dataset.value;
@@ -79,7 +81,7 @@ keys.forEach(key => {
         if (key.classList.contains('clear')) {
             selectedNum = '';
             finalNum = '';
-            firstNum = '';
+            firstNum = '0';
             secondNum = '';
             operator = '';
             isOperatorSelected = false;
@@ -87,6 +89,10 @@ keys.forEach(key => {
             display.value = '';
             miniDisplay.textContent = '';
         }
+
+        setTimeout(() => {
+            key.classList.remove('key-animation');
+        }, 100);
     });
 });
 
@@ -171,8 +177,17 @@ window.onkeydown = function (e) {
             chosenKey = document.querySelector('[data-value="="]');
             chosenKey.click();
             break;
+        default:
+            break;
     }
-}
+
+    if (chosenKey) {
+        chosenKey.classList.add('key-animation');
+        setTimeout(() => {
+            chosenKey.classList.remove('key-animation');
+        }, 100);
+    }
+};
 
 // Calculate
 function operate(firstNum, secondNum, operator) {
