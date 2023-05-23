@@ -5,22 +5,20 @@ let operator = '';
 let isOperatorSelected = false;
 let isResultObtained = false;
 
+// Displays
 const display = document.querySelector('.display');
-
 const miniDisplay = document.querySelector('.mini-display');
 
-
+// Do calculator work with clicks
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => {
-
     key.addEventListener('click', () => {
 
         if (key.classList.contains('number')) {
             const selectedNum = key.dataset.value;
 
             if (selectedNum === '.' && finalNum.includes('.') || selectedNum === '.' && finalNum === '') {
-                // Do not allow another dot to be entered if there is already one in the current number
-                // Do not allow the first digit to be a dot
+
             } else {
                 finalNum += selectedNum;
                 display.value = finalNum;
@@ -38,6 +36,9 @@ keys.forEach(key => {
                 operator = key.dataset.value;
                 isOperatorSelected = true;
                 display.value = firstNum + operator;
+                if (operator === '/') {
+                    display.value = firstNum + "÷";
+                };
                 finalNum = '';
             }
         };
@@ -89,7 +90,91 @@ keys.forEach(key => {
     });
 });
 
+// Do calculator work with keyboard
+window.onkeydown = function (e) {
+    let keyInUse = e.key;
+    let chosenKey;
+    switch (keyInUse) {
+        case '1':
+            chosenKey = document.querySelector('[data-value="1"]');
+            chosenKey.click();
+            break;
+        case '2':
+            chosenKey = document.querySelector('[data-value="2"]');
+            chosenKey.click();
+            break;
+        case '3':
+            chosenKey = document.querySelector('[data-value="3"]');
+            chosenKey.click();
+            break;
+        case '4':
+            chosenKey = document.querySelector('[data-value="4"]');
+            chosenKey.click();
+            break;
+        case '5':
+            chosenKey = document.querySelector('[data-value="5"]');
+            chosenKey.click();
+            break;
+        case '6':
+            chosenKey = document.querySelector('[data-value="6"]');
+            chosenKey.click();
+            break;
+        case '7':
+            chosenKey = document.querySelector('[data-value="7"]');
+            chosenKey.click();
+            break;
+        case '8':
+            chosenKey = document.querySelector('[data-value="8"]');
+            chosenKey.click();
+            break;
+        case '9':
+            chosenKey = document.querySelector('[data-value="9"]');
+            chosenKey.click();
+            break;
+        case '0':
+            chosenKey = document.querySelector('[data-value="0"]');
+            chosenKey.click();
+            break;
+        case '.':
+            chosenKey = document.querySelector('[data-value="."]');
+            chosenKey.click();
+            break;
+        case '+':
+            chosenKey = document.querySelector('[data-value="+"]');
+            chosenKey.click();
+            break;
+        case '-':
+            chosenKey = document.querySelector('[data-value="-"]');
+            chosenKey.click();
+            break;
+        case '*':
+            chosenKey = document.querySelector('[data-value="x"]');
+            chosenKey.click();
+            break;
+        case '/':
+            chosenKey = document.querySelector('[data-value="/"]');
+            chosenKey.click();
+            break;
+        case '^':
+            chosenKey = document.querySelector('[data-value="^"]');
+            chosenKey.click();
+            break;
+        case 'Delete':
+            chosenKey = document.querySelector('[data-value="ac"]');
+            chosenKey.click();
+            break;
+        case 'Backspace':
+            chosenKey = document.querySelector('[data-value="del"]');
+            chosenKey.click();
+            break;
+        case 'Enter':
+            chosenKey = document.querySelector('[data-value="="]');
+            chosenKey.click();
+            break;
+    }
+}
 
+// Calculate
 function operate(firstNum, secondNum, operator) {
     switch (operator) {
         case '+':
@@ -98,13 +183,12 @@ function operate(firstNum, secondNum, operator) {
             return subtract(firstNum, secondNum);
         case 'x':
             return multiply(firstNum, secondNum);
-        case '÷':
+        case '/':
             return divide(firstNum, secondNum);
         case '^':
             return power(firstNum, secondNum);
     }
 }
-
 
 function add(a, b) {
     return parseFloat(a) + parseFloat(b);
