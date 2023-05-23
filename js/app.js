@@ -34,16 +34,23 @@ keys.forEach(key => {
         };
 
         if (key.classList.contains('operator')) {
-            if (firstNum !== '') {
+            if (!isOperatorSelected && key.dataset.value === '-') {
+                if (finalNum.startsWith('-')) {
+                    finalNum = finalNum.slice(1); // Accept negative number as first number
+                } else {
+                    finalNum = '-' + finalNum;
+                }                
+                display.value = finalNum;
+            } else if (firstNum !== '') { // With 0 or positive numbers
                 operator = key.dataset.value;
                 isOperatorSelected = true;
                 display.value = firstNum + operator;
-                if (operator === '/') {
+                if (operator === '/') { // Change "/" to "÷" only for display
                     display.value = firstNum + "÷";
-                };
+                }
                 finalNum = '';
             }
-        };
+        }
 
         if (key.classList.contains('delete')) {
             if (!isResultObtained) {
