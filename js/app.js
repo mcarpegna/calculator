@@ -1,5 +1,5 @@
 let finalNum = '';
-let firstNum = '0';
+let firstNum = '';
 let secondNum = '';
 let operator = '';
 let isOperatorSelected = false;
@@ -29,26 +29,26 @@ keys.forEach(key => {
                 } else {
                     secondNum = finalNum;
                     display.value = firstNum + operator + secondNum;
+                    if (operator === '/') {
+                        display.value = firstNum + "÷" + secondNum;
+                    }
                 }
             }
         };
 
         if (key.classList.contains('operator')) {
-            if (!isOperatorSelected && key.dataset.value === '-') {
-                if (finalNum.startsWith('-')) {
-                    finalNum = finalNum.slice(1); // Accept negative number as first number
-                } else {
-                    finalNum = '-' + finalNum;
-                }                
+            if (!isOperatorSelected && key.dataset.value === '-' && finalNum === '') {
+                finalNum = '-';
                 display.value = finalNum;
-            } else if (firstNum !== '') { // With 0 or positive numbers
+            } else if (firstNum !== '') {
                 operator = key.dataset.value;
                 isOperatorSelected = true;
                 display.value = firstNum + operator;
-                if (operator === '/') { // Change "/" to "÷" only for display
+                if (operator === '/') {
                     display.value = firstNum + "÷";
                 }
                 finalNum = '';
+                isResultObtained = false;
             }
         }
 
@@ -92,7 +92,7 @@ keys.forEach(key => {
             secondNum = '';
             operator = '';
             isOperatorSelected = false;
-            isResultObtained = true;
+            isResultObtained = false;
             display.value = '';
             miniDisplay.textContent = '';
         }
